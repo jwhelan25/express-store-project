@@ -35,7 +35,7 @@ app.use(helmet())
 app.use(cors())
 
 app.post('/', (req, res) => {
-  console.log(req.body)
+
   res
     .send('POST request received.')
 })
@@ -108,7 +108,6 @@ app.post('/user', (req,res) =>{
 
 app.delete('/user/:userId', (req, res) => {
   const { userId } = req.params
-  console.log(userId)
 
   const index = users.findIndex(u => u.id === userId)
   // make sure we actually find a user with that id
@@ -135,7 +134,6 @@ app.use(function errorHandler(error, req, res, next) {
        if (NODE_ENV === 'production') {
          response = { error: { message: 'server error' } }
        } else {
-         console.error(error)
          response = { message: error.message, error }
        }
        res.status(500).json(response)
