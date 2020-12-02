@@ -34,6 +34,12 @@ app.use(express.json())
 app.use(helmet())
 app.use(cors())
 
+app.get('/', (req, res) => {
+
+  res
+    .send('Hello Heroku')
+})
+
 app.post('/', (req, res) => {
 
   res
