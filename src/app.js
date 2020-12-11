@@ -52,34 +52,34 @@ app.post('/user', (req,res) =>{
   if (!username) {
     return res
       .status(400)
-      .send('Username required');
+      .send('Username required')
   }
   if (username.length < 6 || username.length > 20) {
     return res
       .status(400)
-      .send('Username must be between 6 and 20 characters');
+      .send('Username must be between 6 and 20 characters')
   }
   
   if (!password) {
     return res
       .status(400)
-      .send('Password required');
+      .send('Password required')
   }
   if (password.length < 8 || password.length > 36) {
     return res
       .status(400)
-      .send('Password must be between 8 and 36 characters');
+      .send('Password must be between 8 and 36 characters')
   }
   if (!password.match(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/)) {
     return res
       .status(400)
-      .send('Password must be contain at least one digit');
+      .send('Password must be contain at least one digit')
   }
   
   if (!favoriteClub) {
     return res
       .status(400)
-      .send('favorite Club required');
+      .send('favorite Club required')
   }
   const clubs = [
     'Cache Valley Stone Society',
@@ -109,7 +109,7 @@ app.post('/user', (req,res) =>{
   res
   .status(201)
   .location(`http://localhost:8000/user/${id}`)
-  .json({id: id});
+  .json({id: id})
 })
 
 app.delete('/user/:userId', (req, res) => {
@@ -132,7 +132,7 @@ app.delete('/user/:userId', (req, res) => {
 
 app.get('/user', (req, res) => {
   res
-    .json(users);
+    .json(users)
 });
 
 app.use(function errorHandler(error, req, res, next) {
